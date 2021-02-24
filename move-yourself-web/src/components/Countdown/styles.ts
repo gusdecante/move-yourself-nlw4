@@ -1,4 +1,7 @@
-import styled from "styled-components"
+import { count } from "console"
+import styled, { css } from "styled-components"
+
+import { Active } from "../../@types/types"
 
 import { colors } from "../../styles"
 
@@ -42,7 +45,7 @@ export const CountdownContainer = styled.div`
     }
 `
 
-export const CountdownButton = styled.button`
+export const GenericButton = styled.button<Active>`
     width: 100%;
     height: 5rem;
 
@@ -54,15 +57,36 @@ export const CountdownButton = styled.button`
     border: 0;
     border-radius: 5px;
 
-    background: ${colors.blue};
-    color: ${colors.white};
 
     font-size: 1.25rem;
     font-weight: 600;
 
     transition: background-color 0.2s;
 
-    :hover {
-        background: ${colors.blueDark}
+    ${({active}) => 
+        active ? 
+        css`
+            background: ${colors.white};
+            color: ${colors.title};
+            :hover {
+                background: ${colors.red};
+                color: ${colors.white};
+            }
+        ` 
+        : 
+        css`
+            background: ${colors.blue};
+            color: ${colors.white};
+            :not(:disabled):hover {
+                background: ${colors.blueDark};
+            }
+
+            :disabled {
+                background: ${colors.white};
+                color: ${colors.text};
+                cursor: not-allowed;
+            }
+        `
     }
+    
 `

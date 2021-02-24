@@ -16,7 +16,7 @@ export const PageHeader = styled.header`
       border-radius: 4px;
       background: ${colors.grayLine};
       margin: 0 1.5rem;
-      position: relative;
+      position: relative; 
     }
 
     > div div {
