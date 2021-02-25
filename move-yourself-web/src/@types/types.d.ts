@@ -8,7 +8,7 @@ export interface Succeed {
     succeed?: Boolean;
 }
 
-export interface ChallengesProviderProps {
+export interface ChildrenProviderProps {
     children: ReactNode;
 }
 
@@ -27,4 +27,14 @@ export interface ChallengesContextData {
     activeChallenge: Challenge;
     resetChallenge: () => void;
     experinceToNextLevel: number;
+    completeChallenge: () => void;
+}
+
+export interface CountdownContextData {
+    minutes: number
+    seconds: number;
+    hasFinished: boolean;
+    isActive: boolean;
+    startCountdown: () => void;
+    resetCountdown: () => void;
 }
