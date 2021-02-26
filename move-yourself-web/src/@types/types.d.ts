@@ -12,6 +12,13 @@ export interface ChildrenProviderProps {
     children: ReactNode;
 }
 
+export interface ChallengesProviderProps {
+    children: ReactNode;
+    level: number;
+    currentExperience: number;
+    challengesCompleted: number;
+}
+
 interface Challenge {
     type: 'body' | 'eye';
     description: String;
@@ -28,6 +35,7 @@ export interface ChallengesContextData {
     resetChallenge: () => void;
     experinceToNextLevel: number;
     completeChallenge: () => void;
+    closeLevelUpModal: () => void;
 }
 
 export interface CountdownContextData {
@@ -37,4 +45,10 @@ export interface CountdownContextData {
     isActive: boolean;
     startCountdown: () => void;
     resetCountdown: () => void;
+}
+
+interface HomeProps {
+    level: number;
+    currentExperience: number;
+    challengesCompleted: number;
 }
